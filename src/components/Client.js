@@ -1,7 +1,7 @@
 import fetch from 'unfetch'
 
 
-const fetchContents = () => fetch('api/v1/content/all');
+const fetchContents = () => fetch('https://anouarlo.herokuapp.com//api/v1/content/all');
 
 
 export {fetchContents}
