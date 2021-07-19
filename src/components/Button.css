@@ -1,0 +1,37 @@
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff;
+    border-radius : 2px;
+    font-size: 1rem;
+    width:13rem;
+    height:4rem;
+    cursor: pointer;
+    gap: 5px;
+}
+.btns > h3 {
+    font-weight: 300;
+}
+
+i {
+    font-size:1.5rem;
+    
+}
+
+.btn--outline {
+    background: transparent;
+    color: #ffffff;
+
+}
+.btn--outline:hover{
+    background: #ffffff;
+    color: #242422;
+    transition: all 150ms ease-out;
+}
+
+.btn--primary {
+    color : transparent;
+    background: #ffffff
+}
+
