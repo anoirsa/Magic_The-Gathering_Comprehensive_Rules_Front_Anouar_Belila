@@ -7,6 +7,8 @@
 .background--container {
     height:50vw;
     background : url('https://raw.githubusercontent.com/briancodex/react-website-v1/starter/public/images/img-home.jpg');
+    background-repeat: no-repeat;
+    background-size : auto;
     padding: 16rem 2rem 0 2rem;
     text-align: center;
     color:#fff;
