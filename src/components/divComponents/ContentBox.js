@@ -6,7 +6,8 @@ function ContentBox(props) {
 
     return (
         <div className="content--main--box">
-            <div className="image-link">
+            <div className="image-link"
+                 onClick = {() => props.showOrClose()}  >
                <img src={`/images/${props.givenPath}`}></img>
                <div className="content--description">
                 <p>{props.contentTitle.toUpperCase()}</p>
@@ -14,8 +15,14 @@ function ContentBox(props) {
                </div>
                <section className="content-section">
                   {props.chapters.map((item,index) => {
+                      const handleClick = () => {
+                          props.setChosenChapter(item.substring(0,3))
+                          props.showOrCloseChapter();
+                      }
                        return(
-                       <a key={index} className="chapter--link">{item}</a>
+                       <a key={index}
+                        className="chapter--link"
+                        onClick={() => handleClick()}>{item}</a>
                        )
                    })}
                </section>

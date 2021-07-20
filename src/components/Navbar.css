@@ -1,5 +1,4 @@
 .navbar--class {
-    width: 100%;
     height : 80px;
     position: sticky;
     background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.8547794117647058) 21%, rgba(42,43,43,1) 48%);
@@ -89,11 +88,11 @@
 @media screen and (max-width: 768px) {
 
     .navbar-container {
-        position : relative;
+       position : relative;
     }
     .navbar--items {
         height:40vh;
-        right : -200%;
+        display:none;
         width : 100%;
         position: absolute;
         background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.8547794117647058) 21%, rgba(42,43,43,1) 48%);

@@ -4,7 +4,6 @@
     align-items: center;
     border: 1px solid #ffffff;
     border-radius : 2px;
-    font-size: 1rem;
     cursor: pointer;
     gap: 5px;
 }
@@ -19,16 +18,32 @@ i {
 
 .btn--outline {
     background: transparent;
+    font-size: 1rem;
     color: #ffffff;
 
 }
 
+.btn--search {
+    color : #ffffff;
+    background: #dad7d7;
+    border: 1px solid #242424;
+    border-radius:10px;
+    font-size: 20px;
+}
 
-.btn--outline:hover{
+.btn--search:hover {
+    opacity:0.5;
+    transform: scale(1.1);
+    transition: all 400ms ease-out;
+}
+
+
+.btn--outline:hover {
     background: #ffffff;
     color: #242422;
     transition: all 150ms ease-out;
 }
+
 
 .btn--large {
     width:13rem;
@@ -42,7 +57,8 @@ i {
 
 .btn--primary {
     color : #222222;
-    background: #ffffff
+    background: #ffffff;
+    font-size: 1rem;
 }
 
 .btn--primary > h3 {
