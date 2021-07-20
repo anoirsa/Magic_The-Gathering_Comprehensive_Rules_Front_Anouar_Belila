@@ -1,7 +1,7 @@
 .content--main--box {
     margin-left: 10px;
     width : 55vh;
-    height : 120vh;
+    height : 125vh;
     border : 2px solid #242424;
     border-radius: 4px;
     display:flex;
@@ -28,14 +28,14 @@
     font-weight:600;
 }
 .image-link {
-    text-decoration: none;
     display: flex;
     justify-content:center;
     justify-self: center;
     width:100%;
-    height:35%;
+    height:30%;
     overflow:hidden;
     position:relative;
+    cursor:pointer;
 
 }
 
@@ -47,16 +47,16 @@
     width:100%;
     
 }
-
 .image-link > img:hover {
     transform: scale(1.1);
+    opacity:0.9;
     transition: all 350ms ease-out;
 }
 
 
 .content-section {
     width:100%;
-    height:65%;
+    height:70%;
     display:flex;
     flex-direction: column;
     align-items: start;
@@ -64,6 +64,7 @@
     padding-top: 10px;
     padding-left: 10px;
     gap: 10px;
+    overflow:scroll;
 }
 
 .chapter--link{
@@ -71,4 +72,10 @@
     color: #242424;
     font-size: 13px;
     font-weight: 700;
+    cursor:pointer;
+}
+
+.chapter--link:hover {
+    opacity: 0.5;
+    transition: all 150ms ease-out;
 }

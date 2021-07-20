@@ -8,6 +8,7 @@
     justify-content:start;
     align-items:center;
     z-index:990;
+    
 }
 
 .navbar-container {
@@ -83,6 +84,7 @@
 .navbar-logo-link > h1 {
     font-weight: 300;
 }
+
 
 @media screen and (max-width: 768px) {
 

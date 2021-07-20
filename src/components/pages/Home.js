@@ -21,7 +21,7 @@ function Home() {
                     <h2>OUR LIBRARY IS OPEN</h2>
                     <p>Want to read the gathering comprehsive rules ?</p>
                     <section className="button--section">
-                        <Button chosenStyle="btn--outline" textGiven="SEE CONTENTS" isIconThere={true} icon="fas fa-eye"/>
+                        <Button chosenStyle="btn--outline" textGiven="SEE CONTENTS" isIconThere={true} icon="fas fa-eye" chosenSize="btn--large"/>
                     </section>
 
             </div>
