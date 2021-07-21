@@ -19,4 +19,31 @@
     border-radius:5px;
     height:80%;
     background: #ffffff;
+    columns: #224422;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+
+.rules--table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.rules--table td, .rules--table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+.rules--table tr:nth-child(even){background-color: #f2f2f2;}
+  
+.rules--table tr:hover {background-color: #ddd;}
+  
+.rules--table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0c709e;
+    color: white;
 }

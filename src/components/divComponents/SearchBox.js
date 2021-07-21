@@ -24,7 +24,7 @@ function SearchBox(props) {
                     onChange ={(e) => props.setSearchedWord(e.target.value)}
                     />
                        <Button
-                      chosenStyle="btn--search" textGiven="Find" clickMe={props.showIt}
+                      chosenStyle="btn--search" textGiven="Find" clickMe={props.findWordInRules}
                     />
                    </div>
 
@@ -40,7 +40,7 @@ function SearchBox(props) {
                     onChange={(e) => props.setSearchedRule(e.target.value)}
                     />
                        <Button
-                      chosenStyle="btn--search" textGiven="Find" clickMe={props.showWordContainer}
+                      chosenStyle="btn--search" textGiven="Find" clickMe={props.findRuleById}
                         />
                    </div>
                   

@@ -5,5 +5,8 @@ const fetchContents = () => fetch('https://anouarlo.herokuapp.com/api/v1/content
 
 const fetchChapterSpecific = (option) => fetch(`https://anouarlo.herokuapp.com/api/v1/content/rules/chapter_rules/${option}`)
 
- 
-export {fetchContents, fetchChapterSpecific}
+const fetchWordInRules = (option) => fetch(`http://localhost:8080/api/v1/content/rules/search_rule/${option}`)
+
+const fetchRuleById = (option) => fetch(`http://localhost:8080/api/v1/content/rules/get_rule/${option}`)
+
+export {fetchContents, fetchChapterSpecific, fetchWordInRules, fetchRuleById}

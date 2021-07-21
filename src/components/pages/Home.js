@@ -1,6 +1,6 @@
 import React ,{useState, useEffect} from'react'
 import Button from '../Button'
-import { fetchContents } from '../Client'
+import { fetchContents, fetchWordInRules, fetchRuleById} from '../Client'
 import { paths } from '../Data'
 import ContentBox from '../divComponents/ContentBox'
 import ContentContainer from '../divComponents/ContentContainer'
@@ -20,8 +20,8 @@ function Home() {
     const[contentContainer, setContentContainer] = useState(false);
     const[chapterContainer, setChapterContainer] = useState(false);
     //////
-    const setContainer = () => setDesContainer(!desContainer);
     const showOrCloseWordContainer = () => setWordContainer(!wordContainer);
+    const showOrCloseDesContainer = () => setDesContainer(!desContainer);
     const showOrCloseContentContainer = () => setContentContainer(!contentContainer);
     const showOrCloseChapterContainer = () => setChapterContainer(!chapterContainer);
    
@@ -75,6 +75,38 @@ function Home() {
         setContentContainer(false);
         showOrCloseChapterContainer();
      } 
+     // For searched word
+     const [rulesToBeFound, setRulesToBeFound] = useState([]);
+     const findWordInRules = () => {
+         fetchWordInRules(searchedWord).then(data => data.json()).then(data => {
+             if (data.length != 0 ) {
+                setRulesToBeFound(data)
+                showOrCloseWordContainer();
+
+             }
+             else {
+                 console.log("This word does not exsist in all our rules")
+             }
+         }).catch(error => {
+             console.log("There is an error")
+         })
+     }
+     ///
+     const [foundRule, setFoundRule] = useState({}) 
+     const findRuleById = () => {
+         fetchRuleById(searchedRule).then(data => {
+             if (data.status == 200 ) {
+                 console.log(data);
+                 data.json().then(tem => {
+                     console.log(tem);
+                     setFoundRule(tem);
+                     showOrCloseDesContainer();
+
+                 })
+             }
+         })
+     }
+
 
  
     useEffect(() => {
@@ -87,8 +119,8 @@ function Home() {
     console.log("searched word is :" + searchedWord)
     return (
         <div className="home--class">
-            <WordContainerF wordContainer={wordContainer} closeIt={setWordContainer} searchedWord={searchedWord}/>
-            <DesContainerF desContainer={desContainer} closeIt={setDesContainer}/>
+            <WordContainerF wordContainer={wordContainer} closeIt={setWordContainer} searchedWord={searchedWord} rulesToBeFound={rulesToBeFound}/>
+            <DesContainerF desContainer={desContainer} closeIt={setDesContainer} searchedRule={searchedRule} foundRule={foundRule}/>
             <ContentContainer contentContainer={contentContainer} closeIt={setContentContainer} displayedContent = {chosenContent} closeAndOpenCCH={closeAndOpenCCH} nextContent={nextContent} previousContent={previousContent}/>
             <ChapterContainer chapterContainer={chapterContainer} closeIt={setChapterContainer} dsplayedChapter = {chosenChapter} nextChapter={nextChapter} lastChapter={lastChapter} toContent={closeAndOpenCHC}/>
             <div className="background--container">
@@ -123,8 +155,8 @@ function Home() {
                         />
                     )
                 })}
-              <SearchBox showIt={setContainer} 
-                         showWordContainer={showOrCloseWordContainer}
+              <SearchBox findWordInRules={findWordInRules} 
+                         findRuleById={findRuleById}
                          setSearchedWord ={setSearchedWord} 
                          setSearchedRule={setSearchedRule}/>  
             </section>
