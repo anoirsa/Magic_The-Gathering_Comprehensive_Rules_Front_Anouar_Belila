@@ -101,20 +101,17 @@ function Home() {
                      console.log(tem);
                      setFoundRule(tem);
                      showOrCloseDesContainer();
-
-                 })
-             }
-         })
+                })}
+            })
      }
-
-
- 
     useEffect(() => {
-        fetchContents().then(data => data.json()).then(data => {
-            setContents(data)
-        }).catch(error => {
-            console.log("Could not fetch ERROR TYPE " + error)
-        })
+        setTimeout(() => {
+            fetchContents().then(data => data.json()).then(data => {
+                setContents(data)
+            }).catch(error => {
+                console.log("Could not fetch ERROR TYPE " + error)
+            })
+        },3000)
     },[])
     console.log("searched word is :" + searchedWord)
     return (
