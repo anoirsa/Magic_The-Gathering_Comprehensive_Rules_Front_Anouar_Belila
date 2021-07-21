@@ -16,15 +16,13 @@ function ContentBox(props) {
                <section className="content-section">
                   {props.itemG.chapters.map((item,index) => {
                       const handleClick = () => {
+                          props.settingIndexd();
                           props.setChosenContent(props.itemG);
                           props.setCurrentIndexChapter(index);
                           props.setChosenChapter(item)
                           props.showOrCloseChapter();
                       }
-                      // Try code to be implemented
-                      
-                      // To be reviwed later
-                       return(
+                    return(
                        <a key={index}
                         className="chapter--link"
                         onClick={() => handleClick()}

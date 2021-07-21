@@ -23,7 +23,12 @@
     text-align: center;
     
 }
-
+.buttonContainer {
+    display:grid;
+    grid-template-columns : repeat(4, auto);
+    justify-content:center;
+    gap : 8px;
+}
 .titles {
     display:grid;
     gap : 15px;
