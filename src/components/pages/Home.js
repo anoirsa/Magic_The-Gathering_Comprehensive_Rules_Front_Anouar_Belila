@@ -87,7 +87,7 @@ function Home() {
 
              }
              else {
-                 console.log("This word does not exsist in all our rules")
+                alert("This word not found in any rule")
              }
          }).catch(error => {
              console.log("There is an error")
@@ -104,8 +104,17 @@ function Home() {
                      setFoundRule(tem);
                      showOrCloseDesContainer();
                 })}
+                else {
+                    alert("Rule with this ID does not exsit")
+                }
             })
      }
+
+    // Set Scroll to Dwon
+    const goToContent = () => {
+        const yPos = window.scrollY;
+        window.scrollTo(0,yPos + 600);
+    }
     useEffect(() => {
         setTimeout(() => {
             fetchContents().then(data => data.json()).then(data => {
@@ -127,12 +136,12 @@ function Home() {
                     <h2>OUR LIBRARY IS OPEN</h2>
                     <p>Want to read the gathering comprehsive rules ?</p>
                     <section className="button--section">
-                        <Button chosenStyle="btn--outline" textGiven="SEE CONTENTS" isIconThere={true} icon="fas fa-eye" chosenSize="btn--large"/>
+                        <Button chosenStyle="btn--outline" textGiven="SEE CONTENTS" isIconThere={true} icon="fas fa-eye" chosenSize="btn--large" clickMe={goToContent}/>
                     </section>
 
             </div>
             <div className="content--container">
-            <h3>Table of content</h3>
+            <h3>Table of contents</h3>
             {fetched ? 
             <section className="contents--cards">
                 

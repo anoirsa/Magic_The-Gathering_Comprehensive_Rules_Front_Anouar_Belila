@@ -11,13 +11,10 @@ function Navbar() {
             <nav className="navbar-container">
                 <ul className={click ? 'navbar--items active' : 'navbar--items'}>
                 <li className="navbar--item">
-                    <Link className="navbar--link">CONTENTS</Link>
+                    <Link to="/" className="navbar--link">CONTENTS</Link>
                 </li>
                 <li className="navbar--item" >
-                    <Link className="navbar--link" >GLOSSARY</Link>
-                </li>
-                <li className="navbar--item" >
-                    <Link className="navbar--link" >CREDITS</Link>
+                    <Link to="/glossary" className="navbar--link" >GLOSSARY</Link>
                 </li>
                 </ul>
                 <div className="menu-icon" onClick={() => setClicked()}>
@@ -25,7 +22,7 @@ function Navbar() {
                 </div>
                 <div className="navbar-logo">
                 <Link className="navbar-logo-link">
-                <h1>E-BOOKS</h1>
+                <h1>E-ANOUAR</h1>
                 <i className="fas fa-book-open" /> 
                 </Link>
             </div>

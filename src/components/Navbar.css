@@ -22,7 +22,7 @@
     height: 100%;
     width: 40%;
     display:grid;
-    grid-template-columns : repeat(3, auto);
+    grid-template-columns : repeat(2, auto);
     list-style: none;
     position: relative;
 }

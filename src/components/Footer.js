@@ -7,7 +7,7 @@ function Footer() {
     return (
         <div className="footer--class">
             <div className="footer--email--field--container">
-                <h3>Our team welcomes requests to improve the website</h3>
+                <h3>Anouar Belila welcomes requests to improve the website</h3>
                 <p>Leave your email and get the latest!!</p>
                 <form className="from-algin">
                 <input
@@ -36,7 +36,7 @@ function Footer() {
             </div>
             <div className="icons--container">
                 <div className="logo--container">
-                <h1>E-BOOKS</h1>
+                <h1>E-ANOUAR</h1>
                 <i className="fas fa-book-open" /> 
                 </div>
                 <div className="contact--icon--container">
