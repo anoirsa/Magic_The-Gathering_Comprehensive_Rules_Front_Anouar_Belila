@@ -30,12 +30,11 @@ function Home() {
     const[searchedWord, setSearchedWord] = useState("");
     const[searchedRule, setSearchedRule] = useState("");
     const[chosenContent, setChosenContent] = useState({});
-    const[chosenChapter,setChosenChapter] = useState("");
+    const[chosenChapter,setChosenChapter] = useState({});
     //Special
-    const showOrCloseChapterContainer = (option) => {
-        setChosenChapter(option);
-        setChapterContainer(!chapterContainer);
-    } 
+    const showOrCloseChapterContainer = () => setChapterContainer(!chapterContainer);
+       
+    
 
     ///
      ////// close and open
@@ -79,8 +78,8 @@ function Home() {
                         showOrCloseContentContainer();
                     };
                     return(
-                        <ContentBox contentTitle={title} 
-                        chapters={item.chapterTitles} 
+                        <ContentBox contentTitle={item.fullTitle} 
+                        chapters={item.chapters} 
                         givenPath = {paths[index].imgPath} 
                         showOrClose={showOrClose} 
                         setChosenChapter = {setChosenChapter}

@@ -16,13 +16,13 @@ function ContentBox(props) {
                <section className="content-section">
                   {props.chapters.map((item,index) => {
                       const handleClick = () => {
-                          //props.setChosenChapter(item.substring(0,3))
-                          props.showOrCloseChapter(item.substring(0,3));
+                          props.setChosenChapter(item)
+                          props.showOrCloseChapter(item.fullTitle.substring(0,3));
                       }
                        return(
                        <a key={index}
                         className="chapter--link"
-                        onClick={() => handleClick()}>{item}</a>
+                        onClick={() => handleClick()}>{item.fullTitle}</a>
                        )
                    })}
                </section>

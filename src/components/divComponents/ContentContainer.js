@@ -9,9 +9,9 @@ function ContentContainer({contentContainer,closeIt,displayedContent,closeAndOpe
         <div className="content--container-1">
         <h4>{displayedContent.contentTitle}</h4>
             <div className="titles">
-        {displayedContent.chapterTitles.map((item, index) => {
+        {displayedContent.chapters.map((item, index) => {
                 return (
-                    <ChapterBox titleGiven={item} closeAndOpenCCH={closeAndOpenCCH}/>
+                    <ChapterBox itemGiven={item} closeAndOpenCCH={closeAndOpenCCH}/>
                 )
         })}
         </div>
