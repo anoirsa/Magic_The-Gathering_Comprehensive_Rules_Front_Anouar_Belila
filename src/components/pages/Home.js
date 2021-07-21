@@ -23,13 +23,28 @@ function Home() {
     const setContainer = () => setDesContainer(!desContainer);
     const showOrCloseWordContainer = () => setWordContainer(!wordContainer);
     const showOrCloseContentContainer = () => setContentContainer(!contentContainer);
-    const showOrCloseChapterContainer = () => setChapterContainer(!chapterContainer);
+   
+   
+    //////
     // input variable
     const[searchedWord, setSearchedWord] = useState("");
     const[searchedRule, setSearchedRule] = useState("");
     const[chosenContent, setChosenContent] = useState({});
-    const[chosenChapter,setChosenChapter] = useState({});
+    const[chosenChapter,setChosenChapter] = useState("");
+    //Special
+    const showOrCloseChapterContainer = (option) => {
+        setChosenChapter(option);
+        setChapterContainer(!chapterContainer);
+    } 
+
     ///
+     ////// close and open
+     const closeAndOpenCCH= (option) => {
+        setChosenChapter(option);
+        setContentContainer(false);
+        showOrCloseChapterContainer();
+     } 
+
  
     useEffect(() => {
         fetchContents().then(data => data.json()).then(data => {
@@ -44,8 +59,8 @@ function Home() {
         <div className="home--class">
             <WordContainerF wordContainer={wordContainer} closeIt={setWordContainer} searchedWord={searchedWord}/>
             <DesContainerF desContainer={desContainer} closeIt={setDesContainer}/>
-            <ContentContainer contentContainer={contentContainer} closeIt={setContentContainer} displayedContent = {chosenContent}/>
-            <ChapterContainer chapterContainer={chapterContainer} closeIt={setChapterContainer} displayedContent = {chosenChapter}/>
+            <ContentContainer contentContainer={contentContainer} closeIt={setContentContainer} displayedContent = {chosenContent} closeAndOpenCCH={closeAndOpenCCH}/>
+            <ChapterContainer chapterContainer={chapterContainer} closeIt={setChapterContainer} dsplayedChapter = {chosenChapter}/>
             <div className="background--container">
                     <h2>OUR LIBRARY IS OPEN</h2>
                     <p>Want to read the gathering comprehsive rules ?</p>
@@ -69,7 +84,9 @@ function Home() {
                         givenPath = {paths[index].imgPath} 
                         showOrClose={showOrClose} 
                         setChosenChapter = {setChosenChapter}
-                        showOrCloseChapter = {showOrCloseChapterContainer}/>
+                        showOrCloseChapter = {showOrCloseChapterContainer}
+                        
+                        />
                     )
                 } )}
               <SearchBox showIt={setContainer} 
@@ -78,7 +95,7 @@ function Home() {
                          setSearchedRule={setSearchedRule}/>  
             </section>
             </div>
-            <Footer />
+            {/**<Footer /> */}
         </div>
     )
 }

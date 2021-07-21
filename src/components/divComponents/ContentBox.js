@@ -16,8 +16,8 @@ function ContentBox(props) {
                <section className="content-section">
                   {props.chapters.map((item,index) => {
                       const handleClick = () => {
-                          props.setChosenChapter(item.substring(0,3))
-                          props.showOrCloseChapter();
+                          //props.setChosenChapter(item.substring(0,3))
+                          props.showOrCloseChapter(item.substring(0,3));
                       }
                        return(
                        <a key={index}

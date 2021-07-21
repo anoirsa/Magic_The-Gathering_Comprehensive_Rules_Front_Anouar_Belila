@@ -19,4 +19,6 @@
     border-radius:5px;
     height:80%;
     background: #ffffff;
+    columns: #224422;
+    overflow-y: auto;
 }

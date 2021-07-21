@@ -14,9 +14,19 @@
 }
 
 
-.content--container {
+.content--container-1{
     width: 95%;
     border-radius:5px;
     height:80%;
     background: #ffffff;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.titles {
+    display:grid;
+    gap : 15px;
+    grid-template-columns : repeat(5, auto);
+    grid-template-rows : repeat(50,auto);
 }

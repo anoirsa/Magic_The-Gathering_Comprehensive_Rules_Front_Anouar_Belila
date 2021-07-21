@@ -5,7 +5,7 @@ import './ContentBox.css';
 
 function SearchBox(props) {
     return (
-        <div className="content--main--box">
+        <div className="content--main--box search--ip">
              <div className="image-link-search-box">
                <img src={`/images/libs.jpeg`}></img>
                <div className="search">

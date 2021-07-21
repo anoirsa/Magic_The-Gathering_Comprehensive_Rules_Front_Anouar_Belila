@@ -1,12 +1,20 @@
 import React from 'react'
 import Button from '../Button'
+import ChapterBox from '../superDivs/ChapterBox'
 import './ContentContainer.css'
 
-function ContentContainer({contentContainer,closeIt,displayedContent}) {
+function ContentContainer({contentContainer,closeIt,displayedContent,closeAndOpenCCH}) {
     return contentContainer ? <div className="main--content--class">
         <Button chosenStyle="btn--outline" textGiven="CLOSE"  chosenSize="btn--small" clickMe={closeIt}/>
-        <div className="content--container">
-        <h1>{displayedContent.contentTitle}</h1>
+        <div className="content--container-1">
+        <h4>{displayedContent.contentTitle}</h4>
+            <div className="titles">
+        {displayedContent.chapterTitles.map((item, index) => {
+                return (
+                    <ChapterBox titleGiven={item} closeAndOpenCCH={closeAndOpenCCH}/>
+                )
+        })}
+        </div>
         </div>
     </div> : null
 }
