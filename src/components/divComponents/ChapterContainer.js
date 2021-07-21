@@ -3,11 +3,16 @@ import Button from '../Button'
 import { fetchChapterSpecific } from '../Client'
 import './ChapterContainer.css'
 
-function ChapterContainer({chapterContainer,closeIt,dsplayedChapter}) {
+function ChapterContainer({chapterContainer,closeIt,dsplayedChapter, nextChapter, lastChapter, toContent}) {
     
     
     return chapterContainer ? <div className="main--chapter--class">
+        <div className="buttonContainer">
+        <Button chosenStyle="btn--outline" textGiven="Content"  chosenSize="btn--small" clickMe={toContent}/>      
+        <Button chosenStyle="btn--outline" textGiven="PREVIOUS"  chosenSize="btn--small" clickMe={lastChapter}/>   
         <Button chosenStyle="btn--outline" textGiven="CLOSE"  chosenSize="btn--small" clickMe={closeIt}/>
+        <Button chosenStyle="btn--outline" textGiven="NEXT"  chosenSize="btn--small" clickMe={nextChapter}/>
+        </div>
         <div className="chapter--container">
         <h4>{dsplayedChapter.fullTitle}</h4>
             <table className="rules--table" >

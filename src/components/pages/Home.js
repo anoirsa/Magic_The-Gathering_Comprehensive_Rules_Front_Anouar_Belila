@@ -24,21 +24,38 @@ function Home() {
     const showOrCloseWordContainer = () => setWordContainer(!wordContainer);
     const showOrCloseContentContainer = () => setContentContainer(!contentContainer);
    
-   
-    //////
-    // input variable
+
     const[searchedWord, setSearchedWord] = useState("");
     const[searchedRule, setSearchedRule] = useState("");
     const[chosenContent, setChosenContent] = useState({});
     const[chosenChapter,setChosenChapter] = useState({});
+    //
+    const[currentIndexChapter, setCurrentIndexChapter] = useState();
+    // To be reviewd later
+    const nextChapter = () => {
+        if ((currentIndexChapter + 1) != (chosenContent.chapters.length)) {
+            setChosenChapter(chosenContent.chapters[currentIndexChapter + 1]);
+            setCurrentIndexChapter(currentIndexChapter + 1);
+        }
+    }
+
+    const lastChapter = () => {
+        if (currentIndexChapter > 0 ) {
+            setChosenChapter(chosenContent.chapters[currentIndexChapter -1 ]);
+            setCurrentIndexChapter(currentIndexChapter - 1);
+        }
+    }
+    // To be reviewed later
+
     //Special
     const showOrCloseChapterContainer = () => setChapterContainer(!chapterContainer);
-       
+    const closeAndOpenCHC = () => {
+        setChapterContainer(false);
+        showOrCloseContentContainer();
+    }
     
-
-    ///
-     ////// close and open
-     const closeAndOpenCCH= (option) => {
+    const closeAndOpenCCH= (option,op) => {
+        setCurrentIndexChapter(op)
         setChosenChapter(option);
         setContentContainer(false);
         showOrCloseChapterContainer();
@@ -47,7 +64,6 @@ function Home() {
  
     useEffect(() => {
         fetchContents().then(data => data.json()).then(data => {
-            console.log(data);
             setContents(data)
         }).catch(error => {
             console.log("Could not fetch ERROR TYPE " + error)
@@ -59,7 +75,7 @@ function Home() {
             <WordContainerF wordContainer={wordContainer} closeIt={setWordContainer} searchedWord={searchedWord}/>
             <DesContainerF desContainer={desContainer} closeIt={setDesContainer}/>
             <ContentContainer contentContainer={contentContainer} closeIt={setContentContainer} displayedContent = {chosenContent} closeAndOpenCCH={closeAndOpenCCH}/>
-            <ChapterContainer chapterContainer={chapterContainer} closeIt={setChapterContainer} dsplayedChapter = {chosenChapter}/>
+            <ChapterContainer chapterContainer={chapterContainer} closeIt={setChapterContainer} dsplayedChapter = {chosenChapter} nextChapter={nextChapter} lastChapter={lastChapter} toContent={closeAndOpenCHC}/>
             <div className="background--container">
                     <h2>OUR LIBRARY IS OPEN</h2>
                     <p>Want to read the gathering comprehsive rules ?</p>
@@ -72,19 +88,20 @@ function Home() {
             <h3>Table of content</h3>
             <section className="contents--cards">
                 {contents.map((item, index) => {
-                    const title = item.contentNumber + "."+item.contentTitle;
-                    const showOrClose = () => {
+                     const showOrClose = () => {
                         setChosenContent(item);
                         showOrCloseContentContainer();
-                    };
-                    return(
-                        <ContentBox contentTitle={item.fullTitle} 
-                        chapters={item.chapters} 
+                };
+                return(
+                        <ContentBox 
+                        key={index}
+                        itemG={item}
                         givenPath = {paths[index].imgPath} 
                         showOrClose={showOrClose} 
                         setChosenChapter = {setChosenChapter}
                         showOrCloseChapter = {showOrCloseChapterContainer}
-                        
+                        setCurrentIndexChapter={setCurrentIndexChapter}
+                        setChosenContent = {setChosenContent}
                         />
                     )
                 } )}

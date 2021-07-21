@@ -11,7 +11,7 @@ function ContentContainer({contentContainer,closeIt,displayedContent,closeAndOpe
             <div className="titles">
         {displayedContent.chapters.map((item, index) => {
                 return (
-                    <ChapterBox itemGiven={item} closeAndOpenCCH={closeAndOpenCCH}/>
+                    <ChapterBox itemGiven={item} closeAndOpenCCH={closeAndOpenCCH} indexPass={index} key={index}/>
                 )
         })}
         </div>
