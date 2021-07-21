@@ -10,10 +10,12 @@ import SearchBox from '../divComponents/SearchBox'
 import WordContainerF from '../divComponents/WordContainerF'
 import Footer from '../Footer'
 import "./Home.css"
+import Wait from '../superDivs/Wait'
 
 
 function Home() {
     // container related variables
+    const[fetched, setFetched] = useState(false);
     const [contents, setContents] = useState([])
     const [desContainer, setDesContainer] = useState(false)
     const[wordContainer, setWordContainer] = useState(false);
@@ -108,6 +110,7 @@ function Home() {
         setTimeout(() => {
             fetchContents().then(data => data.json()).then(data => {
                 setContents(data)
+                setFetched(true);
             }).catch(error => {
                 console.log("Could not fetch ERROR TYPE " + error)
             })
@@ -130,7 +133,9 @@ function Home() {
             </div>
             <div className="content--container">
             <h3>Table of content</h3>
+            {fetched ? 
             <section className="contents--cards">
+                
                 {contents.map((item, index) => {
                      const showOrClose = () => {
                         setChosenContent(item);
@@ -157,7 +162,9 @@ function Home() {
                          setSearchedWord ={setSearchedWord} 
                          setSearchedRule={setSearchedRule}/>  
             </section>
+            : <Wait /> }
             </div>
+           
             {/**<Footer /> */}
         </div>
     )
