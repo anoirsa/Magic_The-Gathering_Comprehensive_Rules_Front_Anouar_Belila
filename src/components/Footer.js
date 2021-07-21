@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
+    const sendEmail = () => {
+
+    }
     return (
         <div className="footer--class">
             <div className="footer--email--field--container">
@@ -17,7 +20,7 @@ function Footer() {
                 placeholder='Your Email'
               />
               <Button
-                chosenStyle="btn--primary" textGiven="SEND" 
+                chosenStyle="btn--primary" textGiven="SEND" clickMe={sendEmail}
               />
               </form>
               <section className="footer--details">
