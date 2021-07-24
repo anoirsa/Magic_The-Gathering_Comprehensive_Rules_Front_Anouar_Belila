@@ -52,3 +52,9 @@
     background-color: #0c709e;
     color: white;
 }
+
+a {
+    text-decoration: underline;
+    color : #3dbbec;
+    cursor: pointer;
+}
