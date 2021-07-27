@@ -123,7 +123,7 @@ function Home() {
             }).catch(error => {
                 console.log("Could not fetch ERROR TYPE " + error)
             })
-        },3000)
+        },1000)
     },[])
     console.log("searched word is :" + searchedWord)
     return (
